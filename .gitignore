@@ -1,0 +1,28 @@
+# ── IDE / 编辑器 ──
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ── 构建输出 ──
+**/bin/
+**/obj/
+*.dll
+*.pdb
+
+# ── 运行期生成（配置/存档/日志）──
+config.json
+pet.config.json
+**/save.json
+error.log
+
+# ── 打包输出 ──
+release/
+
+# ── 工具/临时 ──
+.codex/
+.agents/
+*.tmp

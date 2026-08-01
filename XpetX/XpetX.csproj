@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>12</LangVersion>
+    <RootNamespace>XpetX</RootNamespace>
+    <AssemblyName>XpetX</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- spine-csharp 本地引用：官方 spine-runtimes 3.8 分支源码（匹配 3.8.99 素材），位于 Spine\spine-csharp -->
+    <SpineCSharpPath>Spine\spine-csharp\spine-csharp.csproj</SpineCSharpPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(SpineCSharpPath)' != ''">
+    <ProjectReference Include="$(SpineCSharpPath)" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Using Remove='System.Drawing' />
+    <Using Remove='System.Windows.Forms' />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove='Spine\spine-csharp\**' />
+    <None Remove='Spine\spine-csharp\**' />
+    <EmbeddedResource Remove='Spine\spine-csharp\**' />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include='..\pets\**\*' Link='pets\%(RecursiveDir)%(Filename)%(Extension)' CopyToOutputDirectory='PreserveNewest' />
+  </ItemGroup>
+</Project>

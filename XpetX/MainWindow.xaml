@@ -1,0 +1,88 @@
+<Window x:Class="XpetX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="XpetX"
+        Width="440"
+        Height="520"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        MouseLeftButtonDown="OnMouseLeftButtonDown"
+        AllowDrop="True"
+        DragOver="OnDragOver"
+        Drop="OnDrop"
+        MouseMove="OnMouseMove"
+        MouseLeftButtonUp="OnMouseLeftButtonUp"
+        MouseEnter="OnMouseEnter"
+        MouseLeave="OnMouseLeave">
+    <Grid x:Name="RootGrid">
+        <TextBlock x:Name="HoverStatsText"
+                   Text=""
+                   Visibility="Collapsed"
+                   Foreground="White"
+                   FontSize="12"
+                   Background="#66000000"
+                   Padding="4,2"
+                   Margin="6,24,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   IsHitTestVisible="False" />
+        <TextBlock x:Name="FpsText"
+                   Text=""
+                   Foreground="White"
+                   FontSize="12"
+                   Background="#66000000"
+                   Padding="4,2"
+                   Margin="6,4,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   IsHitTestVisible="False" />
+        <TextBlock x:Name="EmptyHint"
+                   Text=""
+                   Visibility="Collapsed"
+                   Foreground="White"
+                   FontSize="14"
+                   Background="#B0000000"
+                   Padding="10,8"
+                   MaxWidth="320"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   IsHitTestVisible="False" />
+        <Canvas x:Name="FileLayer" Panel.ZIndex="50" IsHitTestVisible="False" />
+
+        <TextBlock x:Name="BubbleText"
+                   Text=""
+                   Visibility="Collapsed"
+                   Foreground="White"
+                   FontSize="14"
+                   Background="#B0000000"
+                   Padding="8,4"
+                   MaxWidth="240"
+                   TextWrapping="Wrap"
+                   Margin="0,34,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   IsHitTestVisible="False" />
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="性能模式" IsEnabled="False" FontWeight="Bold" />
+                <MenuItem x:Name="MiFocus" Header="优先当前任务（游戏）" IsCheckable="True" Click="OnModeClick" Tag="FocusPriority" />
+                <MenuItem x:Name="MiPet" Header="优先桌宠" IsCheckable="True" Click="OnModeClick" Tag="PetPriority" />
+                <MenuItem x:Name="MiBalanced" Header="两者均衡" IsCheckable="True" Click="OnModeClick" Tag="Balanced" />
+                <MenuItem x:Name="MiAuto" Header="自动判定（推荐）" IsCheckable="True" IsChecked="True" Click="OnModeClick" Tag="Auto" />
+                <Separator />
+                <MenuItem x:Name="MiSit" Header="坐下" IsCheckable="True" Click="OnSitClick" />
+                <MenuItem x:Name="MiHideFullscreen" Header="全屏时隐藏桌宠" IsCheckable="True" Click="OnHideFullscreenClick" />
+                <MenuItem x:Name="MiFps" Header="显示帧率（调试）" IsCheckable="True" IsChecked="True" Click="OnFpsToggleClick" />
+                <MenuItem x:Name="MiClickThrough" Header="点击穿透（Ctrl+Alt+P）" IsCheckable="True" Click="OnClickThroughClick" />
+                <Separator />
+                <MenuItem Header="退出" Click="OnExitClick" />
+            </ContextMenu>
+        </Grid.ContextMenu>
+    </Grid>
+</Window>

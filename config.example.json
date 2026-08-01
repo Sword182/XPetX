@@ -1,0 +1,24 @@
+{
+  "alwaysOnTop": true,
+  "decaySpeed": 1.0,
+  "moveSpeed": 1.0,
+  "activity": 1.0,
+  "taskbarOffset": 0,
+  "walkArea": "taskbar",
+  "walkMirror": true,
+  "facingRight": true,
+  "cursorTracking": true,
+  "headFollowSpeed": 5.0,
+  "hungryThreshold": 80,
+  "deleteMode": "recycle",
+  "allowDangerousFiles": false,
+  "dislikedExtensions": [
+    ".exe",
+    ".msi",
+    ".bat",
+    ".cmd",
+    ".vbs",
+    ".ps1",
+    ".sh"
+  ]
+}
